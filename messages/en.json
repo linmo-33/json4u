@@ -1,12 +1,5 @@
 {
   "": "",
-  "SiteBanner": {
-    "international": "For a more powerful experience, we recommend",
-    "internationalSuffix": "— it includes everything you need and more.",
-    "domestic": "json4u.cn will be discontinued on July 31, 2026. We recommend",
-    "domesticSuffix": "— it offers a more complete and powerful toolkit.",
-    "dismiss": "Dismiss announcement"
-  },
   "Loading": "Loading",
   "TextCompare": "Text Compare",
   "compare": "Compare",
@@ -81,8 +74,6 @@
   "CsvErrEmptyInput": "Parse CSV failed: input is empty",
   "CsvCvrtErrNotArray": "Convert to CSV failed: not a JSON array",
   "CsvCvrtErrNotMatchHeader": "Convert to CSV failed: headers are not match with data",
-  "Tutorial": "Tutorial",
-  "Feedback": "Feedback",
   "related_features": "Related Features",
   "collapse_hint": "Drag here to collapse",
   "copy_json_path": "Copy JSON path",
@@ -93,9 +84,6 @@
   "Home": {
     "Features": "Features",
     "FAQ": "FAQ",
-    "Tutorial": "Tutorial",
-    "Changelog": "Changelog",
-    "Feedback": "Feedback",
     "Currently Free": "Currently Free",
     "Editor": "Editor",
     "Go to Editor": "Go to Editor",
@@ -119,9 +107,6 @@
     "compare_img_desc": "Compare",
     "nest_parse_img_desc": "Nest parse",
     "import_csv_img_desc": "Import and convert CSV file",
-    "Give a rating": "Give a rating",
-    "Terms": "Terms",
-    "Privacy": "Privacy",
     "Friends": "Friends:"
   },
   "FAQ": {

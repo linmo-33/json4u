@@ -8,7 +8,7 @@
     "no-multiple-empty-lines": "error",
     "no-irregular-whitespace": "error",
     "strict": ["error", "never"],
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": "off",
     "quotes": ["error", "double", { "avoidEscape": true }],
     "prefer-const": "error",
     "react-hooks/exhaustive-deps": "off",

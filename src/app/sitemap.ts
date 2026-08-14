@@ -6,10 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     getEntry("/"),
     getEntry("/editor"),
-    getEntry("/changelog"),
-    getEntry("/terms"),
-    getEntry("/privacy"),
-    getEntry("/tutorial"),
   ];
 }
 

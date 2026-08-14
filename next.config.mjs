@@ -1,5 +1,4 @@
 import NextBundleAnalyzer from "@next/bundle-analyzer";
-import createMDX from "@next/mdx";
 import createJiti from "jiti";
 import createNextIntlPlugin from "next-intl/plugin";
 import { fileURLToPath } from "node:url";
@@ -22,11 +21,10 @@ const nextConfig = {
   swcMinify: true,
   poweredByHeader: false,
   output: isCN ? "standalone" : undefined,
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  pageExtensions: ["js", "jsx", "ts", "tsx"],
   experimental: {
     optimizePackageImports: [
       "react-use",
-      "@next/mdx",
       "lodash-es",
       "lucide-react",
       "monaco-editor",
@@ -52,11 +50,10 @@ const nextConfig = {
 };
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.tsx");
-const withMDX = createMDX({});
 const withBundleAnalyzer = NextBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-const config = withBundleAnalyzer(withNextIntl(withMDX(nextConfig)));
+const config = withBundleAnalyzer(withNextIntl(nextConfig));
 
 export default config;

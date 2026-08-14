@@ -1,4 +1,3 @@
-import FAQ from "@/containers/landing/FAQ";
 import Features from "@/containers/landing/Features";
 import HeroTitle from "@/containers/landing/HeroTitle";
 
@@ -7,7 +6,6 @@ export default function Index() {
     <div className="relative flex flex-col items-center w-full h-full md:mx-32 mx-4 mb-48 space-y-24 text-center">
       <HeroTitle />
       <Features />
-      <FAQ />
     </div>
   );
 }

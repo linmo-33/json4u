@@ -24,7 +24,6 @@ export type CommandMode = "jq" | "json_path";
 
 export interface StatusState extends Config {
   _hasHydrated: boolean;
-  editorInitCount: number;
   cursorPosition: Position; // line and column number in the left editor which displayed to the status bar
   selectionLength: number; // selection chars number in the left editor which displayed to the status bar
   commandMode?: CommandMode; // the command mode box displayed above the status bar
@@ -39,7 +38,6 @@ export interface StatusState extends Config {
   editQueue: Array<TreeEdit>;
   tableEditModePos?: { row: number; col: number };
 
-  incrEditorInitCount: () => number;
   setLeftPanelWidth: (width: number) => void;
   setRightPanelWidth: (width: number) => void;
   setCommandMode: (mode: CommandMode | undefined) => void;
@@ -67,7 +65,6 @@ export interface StatusState extends Config {
 const initialStates: Omit<StatusState, FunctionKeys<StatusState>> = {
   ...defaultConfig,
   _hasHydrated: false,
-  editorInitCount: 0,
   cursorPosition: { line: 0, column: 0 },
   selectionLength: 0,
   revealPosition: newRevealPosition(0),
@@ -80,13 +77,6 @@ export const useStatusStore = create<StatusState>()(
   persist(
     (set, get) => ({
       ...initialStates,
-
-      incrEditorInitCount() {
-        const { editorInitCount } = get();
-        const count = editorInitCount + 1;
-        set({ editorInitCount: count });
-        return count;
-      },
 
       setLeftPanelWidth(width: number) {
         set({ leftPanelWidth: width });
@@ -218,7 +208,6 @@ export const useStatusStore = create<StatusState>()(
       skipHydration: true,
       partialize: (state) => ({
         ...Object.fromEntries(Object.keys(defaultConfig).map((k) => [k, state[k as keyof typeof state]])),
-        editorInitCount: state.editorInitCount,
       }),
       storage: createJSONStorage(() => storage),
     },

@@ -21,9 +21,3 @@ declare global {
     searchComponents: Record<string, any>;
   }
 }
-
-// https://www.webdevluis.com/blog/fix-typescript-cannot-find-module-declaration-error-mdx-react
-declare module "*.mdx" {
-  let MDXComponent: (props: any) => JSX.Element;
-  export default MDXComponent;
-}

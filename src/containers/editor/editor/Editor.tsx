@@ -9,7 +9,6 @@ import { useStatusStore } from "@/stores/statusStore";
 import { loader, Editor as MonacoEditor } from "@monaco-editor/react";
 import { useTranslations } from "next-intl";
 import { useShallow } from "zustand/shallow";
-import { example } from "./data";
 import { getInitialJSONFromSearch } from "./url";
 
 loader.config({ paths: { vs: vsURL } });
@@ -23,7 +22,7 @@ export default function Editor({ kind, ...props }: EditorProps) {
   const setEditor = useEditorStore((state) => state.setEditor);
   const setTranslations = useEditorStore((state) => state.setTranslations);
 
-  useDisplayExample(kind);
+  useDisplayInitialJSON(kind);
   useRevealNode(kind);
   useEditTree(kind);
 
@@ -103,9 +102,8 @@ export function useEditTree(kind: Kind) {
   }, [editor, editQueue]);
 }
 
-function useDisplayExample(kind: Kind) {
+function useDisplayInitialJSON(kind: Kind) {
   const editor = useEditor("main");
-  const incrEditorInitCount = useStatusStore((state) => state.incrEditorInitCount);
   const didSetInitialText = useRef(false);
 
   useEffect(() => {
@@ -114,13 +112,11 @@ function useDisplayExample(kind: Kind) {
     }
 
     const initialJSON = getInitialJSONFromSearch(window.location.search);
-    const initialText = initialJSON ?? (incrEditorInitCount() <= 1 ? example : undefined);
-
-    if (initialText === undefined) {
+    if (initialJSON === undefined) {
       return;
     }
 
     didSetInitialText.current = true;
-    editor.parseAndSet(initialText);
+    editor.parseAndSet(initialJSON);
   }, [editor]);
 }

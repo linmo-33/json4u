@@ -1,6 +1,5 @@
 upload-monaco-editor.sh
 .trae
-e2e/foo.spec.ts
 *.report.html
 tsconfig.tsbuildinfo
 public/sw.js*
@@ -18,10 +17,6 @@ dist/
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-
-# testing
-coverage/
-auto-imports.d.ts
 
 # next.js
 /.next/
@@ -55,7 +50,3 @@ next-env.d.ts
 .million
 
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
