@@ -81,6 +81,11 @@
   "double_click_to_enter_edit_mode": "Double-click to enter edit mode",
   "click_to_fold": "Click to fold children nodes",
   "click_to_unfold": "Click to unfold children nodes",
+  "graph_controls": "Graph controls",
+  "zoom_in": "Zoom in",
+  "zoom_out": "Zoom out",
+  "fit_view": "Fit view",
+  "switch_mouse_touchpad": "Switch between mouse and touchpad mode",
   "Home": {
     "Features": "Features",
     "FAQ": "FAQ",

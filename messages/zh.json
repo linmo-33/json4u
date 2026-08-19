@@ -81,6 +81,11 @@
   "double_click_to_enter_edit_mode": "双击进入编辑模式",
   "click_to_fold": "点击折叠子节点",
   "click_to_unfold": "点击展开子节点",
+  "graph_controls": "图形控制栏",
+  "zoom_in": "放大",
+  "zoom_out": "缩小",
+  "fit_view": "适应视图",
+  "switch_mouse_touchpad": "切换鼠标和触控板模式",
   "Home": {
     "Features": "功能",
     "FAQ": "常见问题",

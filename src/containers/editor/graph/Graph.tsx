@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { config } from "@/lib/graph/layout";
 import { useStatusStore } from "@/stores/statusStore";
 import { Background, Controls, ReactFlow, ReactFlowProvider } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { debounce } from "lodash-es";
+import { useTranslations } from "next-intl";
 import MouseButton from "./MouseButton";
 import { ObjectNode, RootNode, VirtualTargetNode } from "./Node";
 import { useRevealNode, useViewportChange } from "./useViewportChange";
@@ -22,8 +23,18 @@ export default function Graph() {
 }
 
 function LayoutGraph() {
+  const t = useTranslations();
   const ref = useRef<HTMLDivElement>(null);
   const isTouchpad = useStatusStore((state) => state.isTouchpad);
+  const ariaLabelConfig = useMemo(
+    () => ({
+      "controls.ariaLabel": t("graph_controls"),
+      "controls.zoomIn.ariaLabel": t("zoom_in"),
+      "controls.zoomOut.ariaLabel": t("zoom_out"),
+      "controls.fitView.ariaLabel": t("fit_view"),
+    }),
+    [t],
+  );
 
   // The graph will render three times because:
   // 1. Modify text in the editor will cause `treeVersion` to change.
@@ -36,6 +47,7 @@ function LayoutGraph() {
   return (
     <ReactFlow
       ref={ref}
+      ariaLabelConfig={ariaLabelConfig}
       panOnScroll={isTouchpad}
       panOnScrollSpeed={config.panOnScrollSpeed}
       minZoom={config.minZoom}

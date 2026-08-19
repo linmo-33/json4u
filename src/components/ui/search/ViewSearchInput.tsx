@@ -14,6 +14,7 @@ export default function ViewSearchInput() {
   return (
     <SearchInput
       id="view-search"
+      className="w-search"
       openListOnFocus
       search={(input) => window.worker?.searchInView(input)}
       onSelect={(item) => setRevealPosition({ treeNodeId: item.id, target: item.revealTarget, from: "search" })}

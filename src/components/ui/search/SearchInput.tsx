@@ -19,6 +19,7 @@ const commandGroupPaddingY = 4;
 const searchMenuHeight = 300;
 
 export interface SearchInputProps<T extends { id: string }> {
+  className?: string;
   search: (inputValue: string) => Promise<T[]> | T[];
   onSelect: (item: T) => void;
   itemHeight: number;
@@ -31,6 +32,7 @@ export interface SearchInputProps<T extends { id: string }> {
 }
 
 export default function SearchInput<T extends { id: string }>({
+  className,
   search,
   onSelect,
   itemHeight,
@@ -119,6 +121,7 @@ export default function SearchInput<T extends { id: string }>({
       id={id}
       data-open={open}
       ref={commandRef}
+      className={className}
       shouldFilter={false}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
